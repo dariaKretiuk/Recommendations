@@ -1,5 +1,5 @@
 //
-//  BooksCollectionViewCell.swift
+//  TypeBookCollectionViewCell.swift
 //  Recommendations
 //
 //  Created by Дарья Кретюк on 04.06.2022.
@@ -8,13 +8,13 @@
 import Foundation
 import UIKit
 
-class BooksCollectionViewCell: UICollectionViewCell {
+class TypeBookCollectionViewCell: UICollectionViewCell {
     
     static let identifier = "BooksCollectionViewCell"
     
     // MARK: - Elements
     
-    weak var delegate: BooksDelegate?
+    weak var delegate: TypesBookDelegate?
     private var nameType: String?
     
     public let button: UIButton = {
@@ -23,7 +23,7 @@ class BooksCollectionViewCell: UICollectionViewCell {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.borderWidth = 2
         button.layer.borderColor = UIColor.ff585b.cgColor
-        button.layer.cornerRadius = 10
+        button.layer.cornerRadius = 20
         button.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         button.titleLabel?.lineBreakMode = .byWordWrapping
         button.titleLabel?.textAlignment = .center

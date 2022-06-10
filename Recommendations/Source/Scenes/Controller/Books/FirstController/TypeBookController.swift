@@ -1,5 +1,5 @@
 //
-//  BooksController.swift
+//  TypeBookController.swift
 //  Recommendations
 //
 //  Created by Дарья Кретюк on 03.06.2022.
@@ -8,17 +8,17 @@
 import Foundation
 import UIKit
 
-class BooksController: UIViewController {
+class TypeBookController: UIViewController {
     
     // MARK: - Elements
     
     private var model: BooksTypeModel?
-    private var typesBooks = BooksView()
+    private var typesBooks = TypeBookView()
     
     
-    private var booksView: BooksView? {
+    private var booksView: TypeBookView? {
         guard isViewLoaded else { return nil }
-        return view as? BooksView
+        return view as? TypeBookView
     }
     
     private let buttonRight: UIButton = {
@@ -53,23 +53,16 @@ class BooksController: UIViewController {
     
     private func setupView() {
         view.backgroundColor = .c131313
-        navigationItem.title = "Книги"
+        navigationItem.title = "Жанры книг"
         navigationController?.navigationBar.prefersLargeTitles = false
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: buttonRight)
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: buttonLeft)
     }
-    
-    // MARK: - Action
-    
-    @objc private func chooseTypeBook(_ sender: UIButton) {
-        print("Выбран тип - \(sender.titleLabel?.text ?? "")")
-    }
-    
 }
 
 // MARK: - Configurations
 
-private extension BooksController {
+private extension TypeBookController {
     func configureView() {
         guard let models = model?.createModels() else { return }
         booksView?.configureView(with: models)
@@ -78,9 +71,9 @@ private extension BooksController {
 
 // MARK: - Delegate
 
-extension BooksController: BooksDelegate {
+extension TypeBookController: TypesBookDelegate {
     
     func chooseTypeBooks(nameType: String) {
-        navigationController?.pushViewController(TypeBooksController(), animated: true)
+        navigationController?.pushViewController(BooksController(nameType: nameType), animated: true)
     }
 }

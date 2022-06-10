@@ -20,6 +20,7 @@ struct Book {
     let urlBook: String?
     let rating: Int?
     let review: String?
+    var isRead: Bool
     let handler: (() -> Void)
 }
 

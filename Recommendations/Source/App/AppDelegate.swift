@@ -53,7 +53,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let receptsNavigationController = UINavigationController(rootViewController: receptsController)
         receptsController.tabBarItem = UITabBarItem(title: "Рецепты", image: UIImage(systemName: "pencil.tip.crop.circle"), tag: 0)
         
-        let booksController = BooksController()
+        let booksController = TypeBookController()
         let booksNavigationController = UINavigationController(rootViewController: booksController)
         booksController.tabBarItem = UITabBarItem(title: "Книги", image: UIImage(systemName: "books.vertical.circle"), tag: 1)
         
